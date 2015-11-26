@@ -1,5 +1,7 @@
 #ifndef ITEMMANAGER_H
 #define ITEMMANAGER_H
+#include <iostream>
+#include <fstream>
 
 #include "Item.h"
 
@@ -10,7 +12,7 @@ public:
 
     void removeItem(Item item);
 
-    bool itemExists(string name);
+    bool itemExists(Item item);
 
     Item getItemByName(string name);
 
