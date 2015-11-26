@@ -74,11 +74,11 @@ void consoleIndex::addItem(istream &in){
 void consoleIndex::removeItemByName(){
 
     cout << "Enter the name of person you want to remove [enter 'q' to cancel]:" << endl;
-    string name;
-    cin >> name;
-    if (name != "q"){
-        if(item_manager.itemExists(name)){
-            item_manager.removeItem(item_manager.getItemByName(name));
+    string itemName;
+    cin >> itemName;
+    if (itemName != "q"){
+        if(item_manager.itemExists(itemName)){
+            item_manager.removeItem(item_manager.getItemByName(itemName));
         } else {
             cout << "Person not found." << endl;
         }
@@ -88,7 +88,6 @@ void consoleIndex::removeItemByName(){
 
 
 bool consoleIndex::executeCommand(string command){
-
     if ((command == "help") || (command == "h")){
         help();
     } else if ((command == "quit") || (command == "q")){
