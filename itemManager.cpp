@@ -2,7 +2,10 @@
 
 void itemManager::addItem(Item item){
     // add item to data structure
-
+    ofstream file;
+    file.open("monkeybusiness.txt");
+    file << "test123.\n";
+    file.close();
 }
 
 void itemManager::removeItem(Item item){
