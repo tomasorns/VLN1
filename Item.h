@@ -7,6 +7,7 @@
 using namespace std;
 
 struct Item{
+    int id;
     string name;
     string sex;
     string yearBorn;

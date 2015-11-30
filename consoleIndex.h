@@ -30,6 +30,7 @@ private:
     bool executeCommand(string command);
 
     void repl();
+
 };
 
 #endif // CONSOLEINDEX_H

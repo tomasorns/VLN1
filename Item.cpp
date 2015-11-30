@@ -18,9 +18,10 @@ istream& operator>> (istream& in, Item& item)
 
 ostream& operator<< (ostream& out, const Item& item)
 {
-    out << "Name:  " << item.name << endl;
-    out << "Sex (M/F): " << item.sex << endl;
-    out << "Year born: " << item.yearBorn << endl;
-    out << "Year dead: " << item.yearDead << endl;
+    out << item.id;
+    out << ";" << item.name;
+    out << ";" << item.sex;
+    out << ";" << item.yearBorn;
+    out << ";" << item.yearDead;
     return out;
 }

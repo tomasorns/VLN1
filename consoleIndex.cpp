@@ -55,9 +55,7 @@ void consoleIndex::search(){
     string itemName;
     cin >> itemName;
     if(item_manager.itemExists(itemName)){
-        Item item;
-        item = item_manager.getItemByName(itemName);
-        cout << item << endl;
+        item_manager.searchItem(itemName);
     } else {
         cout << "Person not found." << endl;
     }
@@ -78,13 +76,12 @@ void consoleIndex::removeItemByName(){
     cin >> itemName;
     if (itemName != "q"){
         if(item_manager.itemExists(itemName)){
-            item_manager.removeItem(item_manager.getItemByName(itemName));
+            item_manager.removeItem(item_manager.searchItem(itemName));
         } else {
             cout << "Person not found." << endl;
         }
     }
 }
-
 
 
 bool consoleIndex::executeCommand(string command){

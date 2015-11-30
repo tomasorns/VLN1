@@ -1,0 +1,4 @@
+1;Tomas Sigfusson;M;D;S
+2;Ari Sigfusson;1;1;1
+3;Mamma;asd;asd;asd
+4;Sigfus Gudnason;M;1963;2060

@@ -8,12 +8,12 @@ CONFIG -= app_bundle
 TEMPLATE = app
 
 SOURCES += main.cpp \
-    Item.cpp \
     itemManager.cpp \
-    consoleIndex.cpp
+    consoleIndex.cpp \
+    Item.cpp
 
 HEADERS += \
-    Item.h \
     itemManager.h \
-    consoleIndex.h
+    consoleIndex.h \
+    Item.h
 
