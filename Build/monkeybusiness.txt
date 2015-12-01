@@ -1,4 +1,5 @@
-1;Tomas Sigfusson;M;D;S
-2;Ari Sigfusson;1;1;1
-3;Mamma;asd;asd;asd
+1;Tomas Sigfusson;M;1989;2089
+2;Ari Sigfusson;M;1994;2094
+3;Mamma;F;1964;2064
 4;Sigfus Gudnason;M;1963;2060
+5;Monkey;M;2015;3000

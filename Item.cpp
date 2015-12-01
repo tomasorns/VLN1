@@ -2,17 +2,19 @@
 
 using namespace std;
 
-//override operators for item
-
+//overload operators for item
 istream& operator>> (istream& in, Item& item)
 {
+    string yb; string yd;
     getline(in, item.name);
     cout << "Sex (M/F): ";
     getline(in, item.sex);
     cout << "Year born: ";
-    getline(in, item.yearBorn);
+    getline(in, yb);
     cout << "Year dead: ";
-    getline(in, item.yearDead);
+    getline(in, yd);
+    item.yearBorn = atoi(yb.c_str());
+    item.yearDead = atoi(yd.c_str());
     return in;
 }
 
