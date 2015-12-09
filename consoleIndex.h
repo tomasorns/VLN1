@@ -15,6 +15,7 @@ private:
     // Make instance of item manager
     itemManager item_manager;
 
+
     // Displays welcome message and instructions
     void welcome();
 
@@ -23,17 +24,38 @@ private:
 
     // Displays help menu for list with available commands
     // to use with list
-    void listHelp();
+    void sListHelp();
 
-    // Uses itemManager to display the list according to
+    void cListHelp();
+
+    // Uses itemManager to display list of scientists according to
     // given command
-    void list();
+    void sList();
+
+    // Uses itemManager to display list of computers according to
+    // given command
+    void cList();
 
     // Uses itemManager to search the list
     void search();
 
     // Uses itemManager to add item to the list
     void addItem(istream& in);
+
+    // Uses itemManager to add computer to the list
+    void addComputer(istream& in);
+
+    // modifies scientist on the list
+    void modItem();
+
+    // modifies computer on the list
+    void modComputer();
+
+    // Adds connection betweene scientist and computer
+    void connect();
+
+    // removes connection between scientist and computer
+    void removeConnection();
 
     // Displays every instance in the list and asks user
     // to enter id of which item he/she wants to remove from
@@ -46,6 +68,15 @@ private:
 
     // Starts a read-evaluate-print loop
     void repl();
+
+    // prints a list of scientists
+    void printItem(list<Item> item);
+
+    // prints a list of computers
+    void printComputer(list<Computer> cmp);
+
+    // prints all connections
+    void printConnections();
 
 };
 

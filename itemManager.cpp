@@ -3,334 +3,180 @@
 void itemManager::addItem(Item item){
     // Adds item to data structure
 
-    // this (getNextValId) can be done better but it'll be useless
-    // when SQL is added
-    getNextValId();
-    item.id = getId();
-
-    ofstream file ("monkeybusiness.txt", ios_base::app);
-    if (file.fail()){
-        cout << "Opening file failed." << endl;
-        cout << "Terminating ..." << endl;
-        exit(1);
-    }
-
-    // If file is empty it doesn't add new line before writing to file
-    if(!is_empty()){
-        file << endl;
-        file << item;
-    }
-    else {
-        file << item;
-    }
-
-    file.close();
+    item.id = getNextValId("Scientists");
+    repositories repo;
+    repo.addScientist(item);
 }
 
-void itemManager::getNextValId(){
-    // this (getNextValId) can be done better but it'll be useless
-    // when SQL is added
-    string id;
+void itemManager::addComputer(Computer cmp){
+    // Add computer to db
 
-    // This is done mainly to create the file if it doesn't exist
-    // if it exists, this does nothing else than opening it and closing.
-    ofstream cFile ("monkeybusiness.txt", ios_base::app);
-    if (cFile.fail()){
-        cout << "Opening file failed." << endl;
-        cout << "Terminating ..." << endl;
-        exit(1);
-    }
-
-    cFile.close();
-    ifstream file ("monkeybusiness.txt");
-    if (file.fail()){
-        cout << "Opening file failed." << endl;
-        cout << "Terminating ..." << endl;
-        exit(1);
-    }
-
-    while(!file.eof()){
-        getline(file,id, '\n');
-        if (id.find(";")){
-            id = id.substr(0,id.find(";"));
-        }
-    }
-
-    int intId = atoi(id.c_str()) + 1;
-    setId(intId);
-    file.close();
+    cmp.id = getNextValId("Computers");
+    repositories repo;
+    repo.addComputer(cmp);
 }
 
-void itemManager::removeItem(Item rItem){
-    // This function removes item from datastructure. This is a little "skítamix".
-    // It adds everything in the datastructure to a list of items but excludes the
-    // item that the user wants to remove, terminates the data file and then creates
-    // a new one with everything on the list created.
+void itemManager::modItem(Item item){
+    // modifies item in db, simply a "middleman" for consoleIndex and repositories
+    repositories repo;
+    repo.modScientists(item);
+}
 
-    list<Item> item;
-    string line; string idLine;
-    int id;
+void itemManager::modComputer(Computer cmp){
+    // modifies computer in db, simply a "middleman" for consoleIndex and repositories
+    repositories repo;
+    repo.modComputer(cmp);
+}
 
+int itemManager::getNextValId(string table){
+    // this function is to get next id with info from db
+    // so next line can get a id with increment of 1
+    repositories repo;
+    return repo.nextVal(table);
+}
 
-    ifstream file ("monkeybusiness.txt");
-    if (file.fail()){
-        cout << "Opening file failed." << endl;
-        cout << "Terminating ..." << endl;
-        exit(1);
+void itemManager::remove(string id, string table){
+    // removes for specific table, this way only one function is needed instead of two
+    repositories repo;
+
+    if(table=="Scientists"){
+        repo.removeScientist(id);
+    } else {
+        repo.removeComputer(id);
     }
-
-    // Add everything exept data with corresponding id to a list of items
-    while(!file.eof()){
-        getline(file,line, '\n');
-        idLine = line.substr(0, line.find(";"));
-        id = atoi(idLine.c_str());
-        if(id != rItem.id){
-            item.push_back(reconstructItem(line));
-        }
-    }
-
-    file.close();
-
-    // Because ofstream doesn't specify that it wants to append to the file after opening it
-    // the data file is terminated and a new one is made.
-    ofstream cFile ("monkeybusiness.txt");
-    bool i = false;
-    list<Item>::const_iterator item_it;
-    for (item_it = item.begin(); item_it != item.end(); item_it++){
-        if(i){
-            cFile << endl;
-            cFile << (*item_it).id << ";"
-                  << (*item_it).name << ";"
-                  << (*item_it).sex << ";"
-                  << (*item_it).yearBorn << ";"
-                  << (*item_it).yearDead;
-        } else {
-            cFile << (*item_it).id << ";"
-                  << (*item_it).name << ";"
-                  << (*item_it).sex << ";"
-                  << (*item_it).yearBorn << ";"
-                  << (*item_it).yearDead;
-            i = true;
-        }
-    }
-
-    cFile.close();
 
 }
 
-bool itemManager::itemExists(string search){
-    // Checks if item exists in data structure. returns true if it is
-    // but false otherwise.
+bool itemManager::itemExistsId(string id, string table){
+    //  Checks if id matches with something in spcified table
+    // This is basicly for error handling purposes, if the item does
+    // not exist user is notified and the program does not try to
+    // work on something that isn't there
 
-    string line;
-
-    ifstream file ("monkeybusiness.txt");
-    if (file.fail()){
-        cout << "Opening file failed." << endl;
-        cout << "Terminating ..." << endl;
-        exit(1);
-    }
-
-    while(!file.eof()){
-        getline(file,line, '\n');
-        if(line.find(search) != std::string::npos){
-            file.close();
-            return 1;
-        }
-    }
-
-    file.close();
-    return false;
-}
-
-list<Item> itemManager::searchItem(string search){
-    // Searches for all instances of 'search' string, adds it to list of items
-    // and then prints said list.
-
-    list<Item> item;
-    string line;
-
-    ifstream file ("monkeybusiness.txt");
-    if (file.fail()){
-        cout << "Opening file failed." << endl;
-        cout << "Terminating ..." << endl;
-        exit(1);
-    }
-
-    while(!file.eof()){
-        getline(file,line, '\n');
-        if(line.find(search) != std::string::npos){
-            item.push_back(reconstructItem(line));
-        }
-    }
-
-    file.close();
-    printList(item);
-    return item;
-}
-
-Item itemManager::reconstructItem(string line){
-    // This function reconstructs a line in the data file to a object of type item.
-
-    Item item;
-    int pos = 0; string yb; string yd;
-
-    string id = line.substr(pos, line.find(";"));
-    line = line.substr(line.find(";")+1, line.length());
-    item.id = atoi(id.c_str());
-
-    item.name = line.substr(pos, line.find(";"));
-    line = line.substr(line.find(";")+1, line.length());
-
-    item.sex = line.substr(pos, line.find(";"));
-    line = line.substr(line.find(";")+1, line.length());
-
-    yb = line.substr(pos, line.find(";"));
-    item.yearBorn = atoi(yb.c_str());
-    line = line.substr(line.find(";")+1, line.length());
-
-    item.yearDead = atoi(line.c_str());
-
-    return item;
-}
-
-list<Item> itemManager::getAllItems(){
-    // Returns a list of items that are included in txt file
-    list<Item> item;
-    string line;
-
-    ifstream file ("monkeybusiness.txt");
-    if (file.fail()){
-        cout << "Opening file failed." << endl;
-        cout << "Terminating ..." << endl;
-        exit(1);
-    }
-
-    while(!file.eof()){
-        getline(file,line, '\n');
-        item.push_back(reconstructItem(line));
-    }
-
-    file.close();
-    return item;
+    repositories repo;
+    return repo.itemExists(id, table);
 }
 
 Item itemManager::getItemById(string id){
-    // Searches for item with corresponding id and returns it
-
-    Item item;
-    string line; string idLine;
-
-    ifstream file ("monkeybusiness.txt");
-    if (file.fail()){
-        cout << "Opening file failed." << endl;
-        cout << "Terminating ..." << endl;
-        exit(1);
-    }
-
-    while(!file.eof()){
-        getline(file,line, '\n');
-        idLine = line.substr(0, line.find(";"));
-        if(idLine == id){
-            return reconstructItem(line);
-        }
-    }
-
-    file.close();
-    return item;
+    // returns item with specific id, very useful when the program only needs
+    // one item but not the whole list
+    repositories repo;
+    return repo.getItemById(id);
 }
 
-bool itemManager::itemExistsId(string id){
-    // Checks if item exists in data structure with id. returns true if it is
-    // but false otherwise.
-    string line; string idLine;
-
-    ifstream file ("monkeybusiness.txt");
-    if (file.fail()){
-        cout << "Opening file failed." << endl;
-        cout << "Terminating ..." << endl;
-        exit(1);
-    }
-
-    while(!file.eof()){
-        getline(file,line, '\n');
-        idLine = line.substr(0, line.find(";"));
-        if(idLine == id){
-            return true;
-        }
-    }
-
-    file.close();
-    return false;
+Computer itemManager::getComputerById(string id){
+    // returns computer with specific id, very useful when the program only needs
+    // one item but not the whole list
+    repositories repo;
+    return repo.getComputerById(id);
 }
 
-void itemManager::getAllItemsListed(string command){
-    // Uses printList to print a list according to given
-    // command after sorting it properly. This function sorts
-    // by name ascending, descending, females first, males first,
-    // by year of birth ascending and year of death ascending
+list<Item> itemManager::searchItem(string search){
+    // Searches for all instances of 'search' string in scientists table and returns
+    // a list of scientists that is easy to print out
+    repositories repo;
+    return repo.searchItem(search);
+}
 
+list<Computer> itemManager::searchComputer(string search){
+    // Searches for all instances of 'search' string in computers table and returns
+    // a list of computers that is easy to print out
+    repositories repo;
+    return repo.searchComputer(search);
+
+}
+
+list<Item> itemManager::getAllItemsListed(string command){
+    // returns all items in scientists listed for easy printing
+    // here it's possible to specify if list should be ordered
+    // in ascending or descending when calling the getAllScientists
+    // function
+
+    repositories repo;
     list<Item> item;
-    item = getAllItems();
+
     if(command == "-id"){
-    printList(item);
+        item = repo.getAllScientists("id", true);
     } else if (command == "-yb"){
-        item.sort([](const Item & first, const Item & second) { return first.yearBorn < second.yearBorn; });
-        printList(item);
+        item = repo.getAllScientists("yearborn", true);
     } else if (command == "-yd"){
-        item.sort([](const Item & first, const Item & second) { return first.yearDead < second.yearDead; });
-        printList(item);
+        item = repo.getAllScientists("yeardead", true);
     } else if (command == "-mf"){
-        item.sort([](const Item & first, const Item & second) { return first.sex > second.sex; });
-        printList(item);
+        item = repo.getAllScientists("sex", false);
     } else if (command == "-ff"){
-        item.sort([](const Item & first, const Item & second) { return first.sex < second.sex; });
-        printList(item);
+        item = repo.getAllScientists("sex", true);
     } else if (command == "-a"){
-        item.sort([](const Item & first, const Item & second) { return first.name < second.name; });
-        printList(item);
+        item = repo.getAllScientists("name", true);
     } else if (command == "-d"){
-        item.sort([](const Item & first, const Item & second) { return first.name > second.name; });
-        printList(item);
+        item = repo.getAllScientists("name", false);
     } else {
         cout << "Unknown list command, type 'list -h' to see all list commands" << endl;
     }
+    return item;
 }
 
-bool itemManager::is_empty(){
-    // Checks if file is empty, first it creates a file if it doesn't exist.
-    ofstream cFile ("monkeybusiness.txt", ios_base::app);
-    cFile.close();
+list<Computer> itemManager::getAllComputersListed(string command){
+    // returns all items in computers listed for easy printing
+    // here it's possible to specify if list should be ordered
+    // in ascending or descending when calling the getAllComputers
+    // function
 
-    ifstream file ("monkeybusiness.txt");
-    if (file.fail()){
-        cout << "Opening file failed." << endl;
-        cout << "Terminating ..." << endl;
-        exit(1);
+    repositories repo;
+    list<Computer> cmp;
+
+    if(command == "-id"){
+        cmp = repo.getAllComputers("id", true);
+    } else if (command == "-m"){
+        cmp  = repo.getAllComputers("make", true);
+    } else if (command == "-md"){
+        cmp  = repo.getAllComputers("make", false);
+    } else if (command == "-ym"){
+        cmp  = repo.getAllComputers("yearmade", true);
+    } else if (command == "-im"){
+        cmp  = repo.getAllComputers("made", false);
+    } else if (command == "-a"){
+        cmp  = repo.getAllComputers("name", true);
+    } else if (command == "-d"){
+        cmp  = repo.getAllComputers("name", false);
+    } else {
+        cout << "Unknown list command, type 'list -h' to see all list commands" << endl;
     }
-
-    if (file.peek() == std::ifstream::traits_type::eof()){
-        file.close();
-        return 1;
-    }
-
-    file.close();
-    return 0;
+    return cmp;
 }
 
-void itemManager::printList(list<Item> item){
-    // Simple print function.
+void itemManager::setupRepo(){
+    // This function calls setup in repo, middleman for indexConsole
+    repositories repo;
+    repo.setup();
+}
 
-    printf(" Id | Name \t \t \t| Sex (M/F) | Year Born | Year of death\n");
-    printf("------------------------------------------------------------------------\n");
-    list<Item>::const_iterator item_it;
-    for (item_it = item.begin(); item_it != item.end(); item_it++){
-        printf("%3d   ",(*item_it).id);
-        printf("%5s",((*item_it).name).c_str());
-        printf("%*s",29-strlen((((*item_it).name).c_str())),((*item_it).sex).c_str());
-        printf("%15d",(*item_it).yearBorn);
-        printf("%12d\n",(*item_it).yearDead);
-    }
-    printf("------------------------------------------------------------------------\n");
+void itemManager::connect(string sId, string cId){
+    // Sends what to connect to db layer
+    repositories repo;
+    repo.connect(sId,cId);
+}
+
+list<Computer> itemManager::getConnections(string sId){
+    // Returns a list of all computers that are connected to scientists with id = sId
+    repositories repo;
+    return repo.getConnections(sId);
+}
+
+void itemManager::removeConnection(string sId, string cId){
+    // if user needs to remove a connection between a scientist and a computer
+    repositories repo;
+    repo.removeConnection(sId, cId);
+}
+
+bool itemManager::is_emptyS(){
+    // Checks if scientists table is empty
+    repositories repo;
+    return repo.is_emptyS();
+}
+
+bool itemManager::is_emptyC(){
+    // Checks if computers table is empty
+    repositories repo;
+    return repo.is_emptyC();
 }
 

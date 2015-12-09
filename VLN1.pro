@@ -1,5 +1,6 @@
 QT += core
 QT -= gui
+QT += core sql
 
 TARGET = VLN1
 CONFIG += console
@@ -11,10 +12,13 @@ TEMPLATE = app
 SOURCES += main.cpp \
     itemManager.cpp \
     consoleIndex.cpp \
-    Item.cpp
+    Item.cpp \
+    Computer.cpp \
+    repositories.cpp
 
 HEADERS += \
     itemManager.h \
     consoleIndex.h \
-    Item.h
-
+    Item.h \
+    Computer.h \
+    repositories.h

@@ -9,62 +9,81 @@
 #include <algorithm>
 
 #include "Item.h"
+#include "Computer.h"
+#include "repositories.h"
 
 class itemManager{
 public:
-    // Adds item to file
+    // Adds item to db
     void addItem(Item item);
 
-    // Removes item from file
-    void removeItem(Item rItem);
+    // Add computer to db
+    void addComputer(Computer cmp);
 
-    // Checks if item exists on file, if any instance of
-    // the string 'search' is in the file it returns true
-    // whether it's a part of name or year or anything else
-    bool itemExists(string search);
+    // modifies item in db
+    void modItem(Item item);
+
+    // modifies computer in db
+    void modComputer(Computer cmp);
+
+    // Removes item from db
+    void remove(string id, string table);
+
+    // Checks if item exists in this table with this id
+    bool itemExistsId(string id, string table);
 
     // Returns list of items that matches any instance of
-    // the string 'search' is in the file it returns true
+    // the string 'search' is in the db it returns
     // whether it's a part of name or year or anything else
     list<Item> searchItem(string search);
 
-    // Reconstructs instance of item after reading it from
-    // .txt file and returns reconstructed item.
-    Item reconstructItem(string line);
+    // Same as above but for computers
+    list<Computer> searchComputer(string search);
 
-    // Uses printList to print a list according to given
-    // command after sorting it properly. This function sorts
-    // by name ascending, descending, females first, males first,
-    // by year of birth ascending and year of death ascending
-    void getAllItemsListed(string command);
 
-    // Returns list of items that are included in txt file
-    list<Item> getAllItems();
+    // Returns a list of all items from db
+    list<Item> getAllItemsListed(string command);
+
+    // Returns a list of all computers for db
+    list<Computer> getAllComputersListed(string command);
 
     // Function to get next value for id according to what the
-    // highest id is in the .txt file
-    void getNextValId();
+    // highest id is in specified db table
+    int getNextValId(string table);
 
-    // Sets the private int id to new value
-    void setId(int newId){id = newId;}
+    // DB table name for Scientists
+    string getTs(){return sTable;}
 
-    // Returns private int id
-    int getId(){return id;}
-
-    // Prints list of items
-    void printList(list<Item> item);
+    // DB table name for Computers
+    string getTc(){return cTable;}
 
     // Returns item with id equal to string id.
     Item getItemById(string id);
 
-    // Returns true if items exists with given id, false otherwise
-    bool itemExistsId(string id);
+    // returns Computer with id equal to string id
+    Computer getComputerById(string id);
 
-    // Checks if file is empty, returns true if empty, false otherwise
-    bool is_empty();
+    // middle step to open db and create tables
+    void setupRepo();
+
+    // connects scientists with computer
+    void connect(string sId, string cId);
+
+    // removes connection between scientist and computer
+    void removeConnection(string sId, string cId);
+
+    // Returns a list of all computers that are connected with scientist with id sId
+    list<Computer> getConnections(string sId);
+
+    // Checks if scientists table is empty
+    bool is_emptyS();
+
+    // Checks if computer table is empty
+    bool is_emptyC();
 private:
-    // Keeps track of next id
-    int id;
+    string sTable = "Scientists";
+
+    string cTable = "Computers";
 };
 
 #endif // ITEMMANAGER_H
