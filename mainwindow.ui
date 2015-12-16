@@ -1,0 +1,1416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1043</width>
+    <height>675</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1041</width>
+      <height>631</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <attribute name="title">
+      <string>Home</string>
+     </attribute>
+     <widget class="QLabel" name="homeScreen">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1041</width>
+        <height>581</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Scientists</string>
+     </attribute>
+     <widget class="QTabWidget" name="tabWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1041</width>
+        <height>571</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_4">
+       <attribute name="title">
+        <string>View List</string>
+       </attribute>
+       <widget class="QLineEdit" name="searchScientist">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>541</width>
+          <height>24</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="listSciSort">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>60</y>
+          <width>541</width>
+          <height>421</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="sciSearchLabel">
+        <property name="geometry">
+         <rect>
+          <x>14</x>
+          <y>20</y>
+          <width>61</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Search...</string>
+        </property>
+       </widget>
+       <widget class="QGroupBox" name="groupBox">
+        <property name="geometry">
+         <rect>
+          <x>570</x>
+          <y>60</y>
+          <width>361</width>
+          <height>311</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Sort:</string>
+        </property>
+        <widget class="QRadioButton" name="sciSortNameAsc">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>30</y>
+           <width>301</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Sort by name in ascending order</string>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="sciSortNameDesc">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>60</y>
+           <width>281</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Sort by name in descending order</string>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="sciSortSexAsc">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>90</y>
+           <width>281</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Sort by sex - Males first</string>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="sciSortSexDesc">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>120</y>
+           <width>281</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Sort by sex - Females first</string>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="sciSortYd">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>180</y>
+           <width>281</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Sort by year dead</string>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="sciSortYb">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>150</y>
+           <width>281</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Sort by year born</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="sciSortButton">
+        <property name="geometry">
+         <rect>
+          <x>850</x>
+          <y>380</y>
+          <width>80</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Sort</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_5">
+       <attribute name="title">
+        <string>Add new</string>
+       </attribute>
+       <widget class="QLineEdit" name="sciName">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>80</y>
+          <width>371</width>
+          <height>24</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="sciSex">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>140</y>
+          <width>371</width>
+          <height>24</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="sciYb">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>200</y>
+          <width>371</width>
+          <height>24</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="sciYd">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>260</y>
+          <width>371</width>
+          <height>24</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="addSci">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>300</y>
+          <width>371</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Add Scientist</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="sciNameError">
+        <property name="geometry">
+         <rect>
+          <x>690</x>
+          <y>50</y>
+          <width>461</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="sciSexError">
+        <property name="geometry">
+         <rect>
+          <x>690</x>
+          <y>110</y>
+          <width>461</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="sciYbError">
+        <property name="geometry">
+         <rect>
+          <x>690</x>
+          <y>170</y>
+          <width>441</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="sciYdError">
+        <property name="geometry">
+         <rect>
+          <x>690</x>
+          <y>230</y>
+          <width>481</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QListWidget" name="listScientistsAdd">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>60</y>
+          <width>541</width>
+          <height>421</height>
+         </rect>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_9">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>60</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Name:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_10">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>120</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Sex (M/F):</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_11">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>180</y>
+          <width>101</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Year born (YYYY)</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_12">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>240</y>
+          <width>111</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Year dead (YYYY)</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_6">
+       <attribute name="title">
+        <string>Modify </string>
+       </attribute>
+       <widget class="QListWidget" name="listScientistsMod">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>60</y>
+          <width>541</width>
+          <height>421</height>
+         </rect>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="modSciButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>490</y>
+          <width>541</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Modify selected Scientist</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="sciNameMod">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>80</y>
+          <width>371</width>
+          <height>24</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="sciSexMod">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>140</y>
+          <width>371</width>
+          <height>24</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="sciYbMod">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>200</y>
+          <width>371</width>
+          <height>24</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="sciYdMod">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>260</y>
+          <width>371</width>
+          <height>24</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="sciNameErrorMod">
+        <property name="geometry">
+         <rect>
+          <x>700</x>
+          <y>50</y>
+          <width>461</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="sciSexErrorMod">
+        <property name="geometry">
+         <rect>
+          <x>700</x>
+          <y>110</y>
+          <width>461</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="sciYbErrorMod">
+        <property name="geometry">
+         <rect>
+          <x>700</x>
+          <y>170</y>
+          <width>441</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="sciYdErrorMod">
+        <property name="geometry">
+         <rect>
+          <x>700</x>
+          <y>240</y>
+          <width>481</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>60</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Name:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>120</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Sex (M/F):</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>180</y>
+          <width>101</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Year born (YYYY)</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_4">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>240</y>
+          <width>111</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Year dead (YYYY)</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>300</y>
+          <width>371</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Confirm</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_7">
+       <attribute name="title">
+        <string>Remove</string>
+       </attribute>
+       <widget class="QListWidget" name="listScientistsR">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>60</y>
+          <width>541</width>
+          <height>421</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="removeSciButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>490</y>
+          <width>541</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Remove Scientist from list</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Computers</string>
+     </attribute>
+     <widget class="QTabWidget" name="tabWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1041</width>
+        <height>571</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_8">
+       <attribute name="title">
+        <string>View List</string>
+       </attribute>
+       <widget class="QLineEdit" name="searchComp">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>541</width>
+          <height>24</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="cmpSearchLabel">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>61</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Search...</string>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="listCmpSort">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>60</y>
+          <width>541</width>
+          <height>421</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_2">
+        <property name="geometry">
+         <rect>
+          <x>570</x>
+          <y>60</y>
+          <width>361</width>
+          <height>311</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Sort:</string>
+        </property>
+        <widget class="QRadioButton" name="cmpSortNameAsc">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>30</y>
+           <width>301</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Sort by name in ascending order</string>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="cmpSortNameDesc">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>60</y>
+           <width>281</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Sort by name in descending order</string>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="cmpSortMakeAsc">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>90</y>
+           <width>281</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Sort by make in ascending order</string>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="cmpSortMakeDesc">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>120</y>
+           <width>281</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Sort by make in descending order</string>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="cmpSortMade">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>180</y>
+           <width>281</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Sort by if made</string>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="cmpSortYm">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>150</y>
+           <width>281</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Sort by year made</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="cmpSortButton">
+        <property name="geometry">
+         <rect>
+          <x>850</x>
+          <y>380</y>
+          <width>80</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Sort</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_9">
+       <attribute name="title">
+        <string>Add new</string>
+       </attribute>
+       <widget class="QListWidget" name="listComputersAdd">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>60</y>
+          <width>541</width>
+          <height>421</height>
+         </rect>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="cmpName">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>80</y>
+          <width>371</width>
+          <height>24</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="cmpMake">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>140</y>
+          <width>371</width>
+          <height>24</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="cmpYm">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>200</y>
+          <width>371</width>
+          <height>24</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="cmpMade">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>260</y>
+          <width>371</width>
+          <height>24</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="addCmp">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>300</y>
+          <width>371</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Add Computer</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_13">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>60</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Name:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_14">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>120</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Make:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_15">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>180</y>
+          <width>111</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Year Made (YYYY):</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_16">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>240</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Was it made?:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="cmpNameError">
+        <property name="geometry">
+         <rect>
+          <x>700</x>
+          <y>50</y>
+          <width>461</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="cmpMakeError">
+        <property name="geometry">
+         <rect>
+          <x>700</x>
+          <y>110</y>
+          <width>461</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="cmpYmError">
+        <property name="geometry">
+         <rect>
+          <x>700</x>
+          <y>170</y>
+          <width>441</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="cmpMadeError">
+        <property name="geometry">
+         <rect>
+          <x>700</x>
+          <y>230</y>
+          <width>481</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_10">
+       <attribute name="title">
+        <string>Modify </string>
+       </attribute>
+       <widget class="QListWidget" name="listComputersMod">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>60</y>
+          <width>541</width>
+          <height>421</height>
+         </rect>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="modCmpButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>490</y>
+          <width>541</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Modify selected Computer</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="cmpNameMod">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>80</y>
+          <width>371</width>
+          <height>24</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="cmpMakeMod">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>140</y>
+          <width>371</width>
+          <height>24</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="cmpYmMod">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>200</y>
+          <width>371</width>
+          <height>24</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="cmpMadeMod">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>260</y>
+          <width>371</width>
+          <height>24</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="cmpModconfButton">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>300</y>
+          <width>371</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Confirm</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_5">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>60</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Name:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_6">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>120</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Make:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_7">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>180</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Year Made:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_8">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>240</y>
+          <width>81</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Was it made?</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="cmpNameErrorMod">
+        <property name="geometry">
+         <rect>
+          <x>670</x>
+          <y>50</y>
+          <width>461</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="cmpMakeErrorMod">
+        <property name="geometry">
+         <rect>
+          <x>670</x>
+          <y>110</y>
+          <width>461</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="cmpYmErrorMod">
+        <property name="geometry">
+         <rect>
+          <x>670</x>
+          <y>170</y>
+          <width>441</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="cmdMadeErrorMod">
+        <property name="geometry">
+         <rect>
+          <x>670</x>
+          <y>240</y>
+          <width>481</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_11">
+       <attribute name="title">
+        <string>Remove</string>
+       </attribute>
+       <widget class="QListWidget" name="listComputersR">
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>60</y>
+          <width>541</width>
+          <height>421</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="removeCmpButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>250</x>
+          <y>490</y>
+          <width>541</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Remove Computer from list</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_12">
+     <attribute name="title">
+      <string>Connections</string>
+     </attribute>
+     <widget class="QTabWidget" name="tabWidget_4">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1041</width>
+        <height>571</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_13">
+       <attribute name="title">
+        <string>View Connections</string>
+       </attribute>
+       <widget class="QListWidget" name="sciConnections">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>60</y>
+          <width>491</width>
+          <height>421</height>
+         </rect>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QListWidget" name="cmpConnections">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>60</y>
+          <width>491</width>
+          <height>421</height>
+         </rect>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_17">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>40</y>
+          <width>211</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Scientist:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_20">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>40</y>
+          <width>211</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Computer worked on:</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_14">
+       <attribute name="title">
+        <string>Add Connection</string>
+       </attribute>
+       <widget class="QListWidget" name="sciConnectionsAdd">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>60</y>
+          <width>491</width>
+          <height>421</height>
+         </rect>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QListWidget" name="cmpConnectionsAdd">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>60</y>
+          <width>491</width>
+          <height>421</height>
+         </rect>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="connectButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>430</x>
+          <y>490</y>
+          <width>171</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Connect!</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_18">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>40</y>
+          <width>211</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Scientist:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_21">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>40</y>
+          <width>211</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Computer worked on:</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_15">
+       <attribute name="title">
+        <string>Remove Connections</string>
+       </attribute>
+       <widget class="QListWidget" name="sciConnectionsRem">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>60</y>
+          <width>491</width>
+          <height>421</height>
+         </rect>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QListWidget" name="cmpConnectionsRem">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>60</y>
+          <width>491</width>
+          <height>421</height>
+         </rect>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="removeConnectionButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>430</x>
+          <y>490</y>
+          <width>171</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Remove!</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_19">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>40</y>
+          <width>211</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Scientist:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_22">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>40</y>
+          <width>211</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Computer worked on:</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1043</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

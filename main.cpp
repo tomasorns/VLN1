@@ -1,16 +1,14 @@
-#include <QCoreApplication>
-#include <iostream>
-#include <vector>
-#include "consoleIndex.h"
-#include <cstdlib>
+#include "mainwindow.h"
+#include <QApplication>
+#include <QGraphicsView>
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
-    consoleIndex console_index;
 
-    // BOOM goes the dynamite!
-    console_index.start();
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+
 
     return a.exec();
 }
